@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../core/utilis/colors_manager.dart';
 import '../../core/utilis/strings_manager.dart';
 
 
@@ -42,15 +43,17 @@ class AppTheme{
             color: ColorManager.primaryColor
         ),
         labelLarge: TextStyle(
-          fontWeight:FontWeight.w500,
-          fontSize: 18.sp,
-          color: Color(0xff06004F),
+          fontWeight:FontWeight.w600,
+          fontSize: 22.sp,
+          color: Colors.black,
 
         ),
         bodyMedium:   TextStyle(
+
+          overflow:TextOverflow.ellipsis ,
             color: Colors.black,
             fontWeight: FontWeight.w500,
-            fontSize: 18.sp
+            fontSize: 14.sp
         ),
       )
   );

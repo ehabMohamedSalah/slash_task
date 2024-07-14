@@ -8,6 +8,8 @@ import 'package:slash_task/presentation/home/tabs/home_tab/home_tab.dart';
 import 'package:slash_task/presentation/home/tabs/mycart_tab/mycart_screen.dart';
 import 'package:slash_task/presentation/home/tabs/profile_tab/profile_tab.dart';
 
+import '../../core/utilis/assets_manager.dart';
+import '../../core/utilis/colors_manager.dart';
 import '../../core/utilis/strings_manager.dart';
 import '../homeViewModel.dart';
 
@@ -23,8 +25,9 @@ class HomeScreen extends StatelessWidget {
           HomeViewModel homeViewModel = HomeViewModel.get(context);
 
           return Scaffold(
-            appBar: AppBar(),
-            bottomNavigationBar: BottomNavigationBar(
+             bottomNavigationBar: BottomNavigationBar(
+               iconSize: 30.sp,
+
                 currentIndex:homeViewModel.currentIndex ,
                 onTap: (newindex) {
                   homeViewModel.changeIndex(newindex);
@@ -35,38 +38,38 @@ class HomeScreen extends StatelessWidget {
                   BottomNavigationBarItem(
                     backgroundColor: ColorManager.primaryColor,
                     icon: SvgPicture.asset(
-                        "assets/images/home.svg",colorFilter: ColorFilter.mode(Colors.black, BlendMode. dstIn),),
+                      assetManagerr.home,colorFilter: ColorFilter.mode(Colors.black, BlendMode. dstIn),height: 50.w,width: 50.w,),
                     label: "",
                     activeIcon: SvgPicture.asset(
-                        "assets/images/home.svg",colorFilter: ColorFilter.mode(Colors.black87, BlendMode.srcIn)),
+                        assetManagerr.home,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.srcIn),height: 50.w,width: 50.w,),
 
                   ),
                   BottomNavigationBarItem(
                     backgroundColor: ColorManager.primaryColor,
 
                     icon: SvgPicture.asset(
-                        "assets/images/favorite.svg"),
+                      assetManagerr.favorite,height: 50.w,width: 50.w,),
                     label: "",
                     activeIcon: SvgPicture.asset(
-                        "assets/images/favorite.svg",colorFilter: ColorFilter.mode(Colors.black87, BlendMode. dstOut)),
+                        assetManagerr.favorite,colorFilter: ColorFilter.mode(Colors.black87, BlendMode. dstOut),height: 50.w,width: 50.w,),
 
                   ),
                   BottomNavigationBarItem(
                     backgroundColor: ColorManager.primaryColor,
                     icon: SvgPicture.asset(
-                        "assets/images/mycart.svg"),
+                      assetManagerr.myCart,height: 50.w,width: 50.w,),
                     label: "",
                     activeIcon: SvgPicture.asset(
-                        "assets/images/mycart.svg",colorFilter: ColorFilter.mode(Colors.black87, BlendMode.dstOut)),
+                        assetManagerr.myCart,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.dstOut),height: 50.w,width: 50.w,),
 
                   ),
                   BottomNavigationBarItem(
                     backgroundColor: ColorManager.primaryColor,
                     icon: SvgPicture.asset(
-                        "assets/images/profile.svg"),
+                      assetManagerr.profile,height: 50.w,width: 50.w,),
                     label: "",
                     activeIcon: SvgPicture.asset(
-                        "assets/images/profile.svg",colorFilter: ColorFilter.mode(Colors.black87, BlendMode.dstOut)),
+                        assetManagerr.profile,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.dstOut),height: 50.w,width: 50.w,),
 
                   ),
 
