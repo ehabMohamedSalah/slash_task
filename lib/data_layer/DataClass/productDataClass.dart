@@ -1,5 +1,8 @@
  import 'package:injectable/injectable.dart';
 
+import '../../core/utilis/assets_manager.dart';
+import '../../core/utilis/strings_manager.dart';
+import '../../presentation/home/tabs/home_tab/widget/DataClass.dart';
 import '../model/BestSelling.dart';
 import '../model/NewArrival.dart';
 import '../model/RecommendedForYou.dart';
@@ -17,7 +20,7 @@ import '../model/RecommendedForYou.dart';
   static List<NewArrival>newArrival=[
     NewArrival(id: 1, name: "New Arrival 1", price: 34.99, image: "assets/images/dumy/new_arrival_1.png"),
     NewArrival(id: 2, name: "New Arrival 2", price: 54.99, image: "assets/images/dumy/new_arrival_2.png"),
-    NewArrival(id: 3, name: "New Arrival 3", price: 21.99, image: "assets/images/dumy/newArrival3.png"),
+    NewArrival(id: 3, name: "New Arrival 3", price: 21.99, image: "assets/images/dumy/recommended_3.png"),
     NewArrival(id: 4, name: "New Arrival 4", price: 42.99, image: "assets/images/dumy/new_arrival_4.png"),
     NewArrival(id: 5, name: "New Arrival 5", price: 29.99, image: "assets/images/dumy/new_arrival_5.png"),
   ];
@@ -28,6 +31,14 @@ import '../model/RecommendedForYou.dart';
     RecommendedForYou(id: 3,name: "Recpmmended 3",price: 18.99,image: "assets/images/dumy/recommended_3.png"),
     RecommendedForYou(id: 4,name: "Recpmmended 4",price: 36.99,image: "assets/images/dumy/recommended_4.png"),
     RecommendedForYou(id: 1,name: "Recpmmended 1",price: 25.99,image: "assets/images/dumy/recommended_5.png"),
+
+  ];
+  static List<CategoryDataClass> categories=[
+    CategoryDataClass(text:StringsManger.fashion ,img: assetManagerr.category1,),
+    CategoryDataClass(text:StringsManger.games ,img: assetManagerr.category2,),
+    CategoryDataClass(text:StringsManger.accessories ,img: assetManagerr.category3,),
+    CategoryDataClass(text:StringsManger.books ,img: assetManagerr.category4,),
+    CategoryDataClass(text:"Articles",img: assetManagerr.category5,)
 
   ];
 }

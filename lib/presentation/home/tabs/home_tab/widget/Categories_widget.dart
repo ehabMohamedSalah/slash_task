@@ -10,8 +10,11 @@ class CategoriesWidget extends StatelessWidget {
   CategoriesWidget({required this.categoryDataClass});
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
     return Column(
       children: [
+     /*   width>1100?150:72*/
         SvgPicture.asset(categoryDataClass.img,height: 72.h,width: 72.w,),
         Text(categoryDataClass.text,maxLines: 1,style: Theme.of(context).textTheme.bodyMedium,),
       ],
