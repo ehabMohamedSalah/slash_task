@@ -25,58 +25,63 @@ class HomeScreen extends StatelessWidget {
           HomeViewModel homeViewModel = HomeViewModel.get(context);
 
           return Scaffold(
-             bottomNavigationBar: BottomNavigationBar(
-               iconSize: 30.sp,
-
-                currentIndex:homeViewModel.currentIndex ,
-                onTap: (newindex) {
-                  homeViewModel.changeIndex(newindex);
-                },
-                showUnselectedLabels: false,
-                showSelectedLabels: false,
-                items: [
-                  BottomNavigationBarItem(
-                    backgroundColor: ColorManager.primaryColor,
-                    icon: SvgPicture.asset(
-                      assetManagerr.home,colorFilter: ColorFilter.mode(Colors.black, BlendMode. dstIn),height: 50.w,width: 50.w,),
-                    label: "",
-                    activeIcon: SvgPicture.asset(
-                        assetManagerr.home,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.srcIn),height: 50.w,width: 50.w,),
-
-                  ),
-                  BottomNavigationBarItem(
-                    backgroundColor: ColorManager.primaryColor,
-
-                    icon: SvgPicture.asset(
-                      assetManagerr.favorite,height: 50.w,width: 50.w,),
-                    label: "",
-                    activeIcon: SvgPicture.asset(
-                        assetManagerr.favorite,colorFilter: ColorFilter.mode(Colors.black87, BlendMode. dstOut),height: 50.w,width: 50.w,),
-
-                  ),
-                  BottomNavigationBarItem(
-                    backgroundColor: ColorManager.primaryColor,
-                    icon: SvgPicture.asset(
-                      assetManagerr.myCart,height: 50.w,width: 50.w,),
-                    label: "",
-                    activeIcon: SvgPicture.asset(
-                        assetManagerr.myCart,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.dstOut),height: 50.w,width: 50.w,),
-
-                  ),
-                  BottomNavigationBarItem(
-                    backgroundColor: ColorManager.primaryColor,
-                    icon: SvgPicture.asset(
-                      assetManagerr.profile,height: 50.w,width: 50.w,),
-                    label: "",
-                    activeIcon: SvgPicture.asset(
-                        assetManagerr.profile,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.dstOut),height: 50.w,width: 50.w,),
-
-                  ),
+             bottomNavigationBar: Container(
+               height: 98.h,
+               child: BottomNavigationBar(
+                 iconSize: 30.sp,
 
 
-                ]
+                  currentIndex:homeViewModel.currentIndex ,
+                  onTap: (newindex) {
+                    homeViewModel.changeIndex(newindex);
+                  },
+                  showUnselectedLabels: false,
+                  showSelectedLabels: false,
+                  items: [
+                    BottomNavigationBarItem(
 
-            ),
+                      backgroundColor: ColorManager.primaryColor,
+                      icon: SvgPicture.asset(
+                        assetManagerr.home,colorFilter: ColorFilter.mode(Colors.black, BlendMode. dstIn),height: 50.w,width: 50.w,),
+                      label: "",
+                      activeIcon: SvgPicture.asset(
+                          assetManagerr.home,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.srcIn),height: 50.w,width: 50.w,),
+
+                    ),
+                    BottomNavigationBarItem(
+                      backgroundColor: ColorManager.primaryColor,
+
+                      icon: SvgPicture.asset(
+                        assetManagerr.favorite,height: 50.w,width: 50.w,),
+                      label: "",
+                      activeIcon: SvgPicture.asset(
+                          assetManagerr.favorite,colorFilter: ColorFilter.mode(Colors.black87, BlendMode. dstOut),height: 50.w,width: 50.w,),
+
+                    ),
+                    BottomNavigationBarItem(
+                      backgroundColor: ColorManager.primaryColor,
+                      icon: SvgPicture.asset(
+                        assetManagerr.myCart,height: 50.w,width: 50.w,),
+                      label: "",
+                      activeIcon: SvgPicture.asset(
+                          assetManagerr.myCart,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.dstOut),height: 50.w,width: 50.w,),
+
+                    ),
+                    BottomNavigationBarItem(
+                      backgroundColor: ColorManager.primaryColor,
+                      icon: SvgPicture.asset(
+                        assetManagerr.profile,height: 50.w,width: 50.w,),
+                      label: "",
+                      activeIcon: SvgPicture.asset(
+                          assetManagerr.profile,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.dstOut),height: 50.w,width: 50.w,),
+
+                    ),
+
+
+                  ]
+
+                           ),
+             ),
             body: Tabs[homeViewModel.currentIndex],
 
           );

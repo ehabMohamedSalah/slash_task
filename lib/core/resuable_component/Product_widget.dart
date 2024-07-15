@@ -6,21 +6,18 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:slash_task/Domain/entity/best_selling_entity/ProductEntity.dart';
 import 'package:slash_task/core/utilis/assets_manager.dart';
 
 class ProductWidget extends StatelessWidget {
- // ProductEntity product;
-  //BestSelling(this.product);
+  ProductEntity product;
+  ProductWidget(this.product);
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 124.w,
-      height: 170,
-      decoration: BoxDecoration(
-        border: Border.all(width: 2.w, color: Color(0xff004182)),
-        borderRadius: BorderRadius.all(Radius.circular(15.sp)),
-      ),
-      child: Column(
+      height: 150,
+       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
@@ -30,7 +27,7 @@ class ProductWidget extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(15.sp),
                     topLeft: Radius.circular(15.sp)),
-                child: Image.asset("assets/images/dumyyy.png",width: 120.w,height: 114.h,fit: BoxFit.cover,),
+                child: Image.asset(product.image??"",width: 120.w,height: 114.h,fit: BoxFit.cover,),
                /* CachedNetworkImage(
                   width: 191.w,
                   height: 128.h,
@@ -51,7 +48,7 @@ class ProductWidget extends StatelessWidget {
             height: 8.h,
           ),
           Text(
-            "${"Skittch" ?? ""}\n",
+            "${product.name ?? ""}",
             maxLines: 2,
             style: TextStyle(
               fontWeight: FontWeight.w400,
@@ -64,14 +61,14 @@ class ProductWidget extends StatelessWidget {
 
 
           Row(children: [
-            Text("EGP 55"),
+            Text("${product.price}"),
             Spacer(),
              SvgPicture.asset("assets/images/star_.svg"),
               SizedBox(width: 10.w,),
                 SvgPicture.asset(
                 "assets/images/plus.svg",
-                height: 30.h,
-                width: 30.w,
+                height: 20.h,
+                width: 20.w,
                 )
            ]),
         ],
