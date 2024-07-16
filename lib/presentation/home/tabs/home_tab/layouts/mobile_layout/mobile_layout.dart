@@ -28,7 +28,7 @@ class MobileLayout extends StatelessWidget {
     List<CategoryModel> categories = CategoryModel.getCategories();
 
     return  BlocProvider(
-      create: (context) => getIt<HomeTabViewModel>()..bestSelling(),
+      create: (context) => getIt<HomeTabViewModel>()..BestSellingtUseCase,
 
       child: Scaffold(
         body: Padding(

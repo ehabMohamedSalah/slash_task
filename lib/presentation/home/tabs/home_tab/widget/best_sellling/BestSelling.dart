@@ -34,16 +34,17 @@ class _NewArrivalWidgetState extends State<BestSellingWidget> {
       builder: (BuildContext context, state) {
         if(state is HomeTabViewModelSuccess){
           return  SizedBox(
-            height: 200.h,
+
+            height: 190.h,
             child: ListView.separated(
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => ProductWidget( imagePath:state.bestselling[index].image ,name:state.bestselling[index].name  ,price: state.bestselling[index].price ,),
+                itemBuilder: (context, index) => ProductWidget(state.bestselling[index]),
                 separatorBuilder:  (context, index) => SizedBox(width: 16.w,),
                 itemCount:state.bestselling.length),
           );
         }
         if(state is HomeTabViewModelError){
-          return Center(child: Text(state.errorMessage),);
+          return Center(child: CircularProgressIndicator(),);
         }
         return Center(child: CircularProgressIndicator(),);
       },

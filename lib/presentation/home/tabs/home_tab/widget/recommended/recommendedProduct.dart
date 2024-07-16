@@ -38,10 +38,10 @@ class _RecommendedWidgetState extends State<RecommendedWidget> {
         builder: (context, state) {
           if(state is HomeTabRecommendedSuccess){
             return SizedBox(
-              height: 200.h,
+              height: 190.h,
               child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => ProductWidget(price: state.recommendedEntity[index].price,name: state.recommendedEntity[index].name,imagePath: state.recommendedEntity[index].image,),
+                  itemBuilder: (context, index) => ProductWidget(state.recommendedEntity[index]),
                   separatorBuilder: (context, index) => SizedBox(width: 16.w,),
                   itemCount: 6),
             );

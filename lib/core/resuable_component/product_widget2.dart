@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-  import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -9,26 +9,32 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:slash_task/Domain/entity/best_selling_entity/ProductEntity.dart';
 import 'package:slash_task/core/utilis/assets_manager.dart';
 
-class ProductWidget extends StatelessWidget {
-  ProductEntity product;
-  ProductWidget(this.product);
+class ProductWidget2 extends StatelessWidget {
+  String? imagePath;
+  String? name;
+  num? price;
+
+  ProductWidget2({required this.imagePath,required this.name,required this.price});
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 124.w,
       height: 150,
-       child: Column(
+      decoration: BoxDecoration(
+
+      ),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
+            fit: StackFit.loose,
             alignment: Alignment.topRight,
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(15.sp),
                     topLeft: Radius.circular(15.sp)),
-                child: Image.asset(product.image??"",width: 120.w,height: 114.h,fit: BoxFit.cover,),
-               /* CachedNetworkImage(
+                child: Image.asset(imagePath??"" ,height:70,fit: BoxFit.cover,),
+                /* CachedNetworkImage(
                   width: 191.w,
                   height: 128.h,
                   fit: BoxFit.cover,
@@ -48,11 +54,10 @@ class ProductWidget extends StatelessWidget {
             height: 8.h,
           ),
           Text(
-            "${product.name ?? ""}",
+            "${name ?? ""}",
             maxLines: 2,
             style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 14.sp,
+
               overflow: TextOverflow.ellipsis,
             ),
           ),
@@ -61,16 +66,16 @@ class ProductWidget extends StatelessWidget {
 
 
           Row(children: [
-            Text("${product.price}"),
+            Text("${price}"),
             Spacer(),
-             SvgPicture.asset("assets/images/star_.svg"),
-              SizedBox(width: 10.w,),
-                SvgPicture.asset(
-                "assets/images/plus.svg",
-                height: 20.h,
-                width: 20.w,
-                )
-           ]),
+            SvgPicture.asset("assets/images/star_.svg"),
+            SizedBox(width: 10.w,),
+            SvgPicture.asset(
+              "assets/images/plus.svg",
+              height: 20.h,
+              width: 20.w,
+            )
+          ]),
         ],
       ),
     );

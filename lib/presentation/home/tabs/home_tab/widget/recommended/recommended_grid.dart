@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:slash_task/core/di/di.dart';
+import 'package:slash_task/core/resuable_component/product_widget2.dart';
 import 'package:slash_task/core/utilis/strings_manager.dart';
 
 import '../../../../../../core/resuable_component/Product_widget.dart';
@@ -29,7 +30,7 @@ class RecommendedGrid extends StatelessWidget {
                         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 10,crossAxisSpacing: 5),
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context,index){
-                          return ProductWidget(price: state.recommendedEntity[index].price,name: state.recommendedEntity[index].name,imagePath: state.recommendedEntity[index].image,);
+                          return ProductWidget2(price: state.recommendedEntity[index].price,name: state.recommendedEntity[index].name,imagePath: state.recommendedEntity[index].image,);
                         },
                         itemCount: state.recommendedEntity.length
                     )

@@ -39,7 +39,7 @@ class _NewArrivalWidgetState extends State<NewArrivalWidget> {
             height: 200.h,
             child: ListView.separated(
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => ProductWidget(price: state.newArrivalEntity[index].price,name: state.newArrivalEntity[index].name,imagePath: state.newArrivalEntity[index].image,),
+                itemBuilder: (context, index) => ProductWidget(state.newArrivalEntity[index]),
                 separatorBuilder: (context, index) => SizedBox(width: 16.w,),
                 itemCount: 6),
           );
