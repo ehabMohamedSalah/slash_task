@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/resuable_component/Product_widget.dart';
-import '../view_model/home_tab_view_model_cubit.dart';
+import '../../../../../../core/resuable_component/Product_widget.dart';
+import '../../view_model/home_tab_view_model_cubit.dart';
 
 class RecommendedWidget extends StatefulWidget {
   const RecommendedWidget({super.key});
@@ -41,7 +41,7 @@ class _RecommendedWidgetState extends State<RecommendedWidget> {
               height: 200.h,
               child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => ProductWidget(state.recommendedEntity[index]),
+                  itemBuilder: (context, index) => ProductWidget(price: state.recommendedEntity[index].price,name: state.recommendedEntity[index].name,imagePath: state.recommendedEntity[index].image,),
                   separatorBuilder: (context, index) => SizedBox(width: 16.w,),
                   itemCount: 6),
             );

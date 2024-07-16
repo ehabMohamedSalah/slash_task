@@ -44,7 +44,7 @@ class AppTheme{
         ),
         labelLarge: TextStyle(
           fontWeight:FontWeight.w600,
-          fontSize: 22.sp,
+          fontSize: 16.sp,
           color: Colors.black,
 
         ),

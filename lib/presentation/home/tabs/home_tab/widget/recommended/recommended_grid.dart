@@ -1,0 +1,47 @@
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:slash_task/core/di/di.dart';
+import 'package:slash_task/core/utilis/strings_manager.dart';
+
+import '../../../../../../core/resuable_component/Product_widget.dart';
+import '../../../../../../core/resuable_component/RowTabWidget.dart';
+import '../../view_model/home_tab_view_model_cubit.dart';
+
+
+class RecommendedGrid extends StatelessWidget {
+  const RecommendedGrid({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        RowTabWidget(StringsManger.recommendedForYou),
+        const SizedBox(height: 10,),
+        BlocProvider(
+          create: (context)=>getIt<HomeTabViewModel>()..recommendedProduct(),
+          child: BlocBuilder<HomeTabViewModel,HomeTabViewModelState>(
+            builder: (context,state){
+              if(state is HomeTabRecommendedSuccess){
+                return Expanded(
+                    child: GridView.builder(
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 10,crossAxisSpacing: 5),
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context,index){
+                          return ProductWidget(price: state.recommendedEntity[index].price,name: state.recommendedEntity[index].name,imagePath: state.recommendedEntity[index].image,);
+                        },
+                        itemCount: state.recommendedEntity.length
+                    )
+                );
+              }
+              else{
+                return const Center(child: CircularProgressIndicator.adaptive(),);
+              }
+            },
+          ),
+        )
+      ],
+    );
+  }
+}

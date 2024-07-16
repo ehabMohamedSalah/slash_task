@@ -10,9 +10,9 @@ class RowTabWidget extends StatelessWidget {
     return   Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(text,style: Theme.of(context).textTheme.labelLarge,),
+        Text(text,style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
         Row(children: [
-          Text(StringsManger.seeAll,style: Theme.of(context).textTheme.bodyMedium,),
+          Text(StringsManger.seeAll,style:TextStyle(fontSize: 14)),
           Icon(Icons.arrow_forward_ios),
         ],),
       ],

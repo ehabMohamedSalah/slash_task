@@ -24,11 +24,9 @@ class HomeScreen extends StatelessWidget {
         {
           HomeViewModel homeViewModel = HomeViewModel.get(context);
 
-          return Scaffold(
-             bottomNavigationBar: Container(
-               height: 98.h,
-               child: BottomNavigationBar(
-                 iconSize: 30.sp,
+          return SafeArea(
+            child: Scaffold(
+               bottomNavigationBar: BottomNavigationBar(
 
 
                   currentIndex:homeViewModel.currentIndex ,
@@ -42,38 +40,38 @@ class HomeScreen extends StatelessWidget {
 
                       backgroundColor: ColorManager.primaryColor,
                       icon: SvgPicture.asset(
-                        assetManagerr.home,colorFilter: ColorFilter.mode(Colors.black, BlendMode. dstIn),height: 50.w,width: 50.w,),
+                        assetManagerr.home,colorFilter: ColorFilter.mode(Colors.black, BlendMode. dstIn),),
                       label: "",
                       activeIcon: SvgPicture.asset(
-                          assetManagerr.home,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.srcIn),height: 50.w,width: 50.w,),
+                          assetManagerr.home,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.srcIn),),
 
                     ),
                     BottomNavigationBarItem(
                       backgroundColor: ColorManager.primaryColor,
 
                       icon: SvgPicture.asset(
-                        assetManagerr.favorite,height: 50.w,width: 50.w,),
+                        assetManagerr.favorite,),
                       label: "",
                       activeIcon: SvgPicture.asset(
-                          assetManagerr.favorite,colorFilter: ColorFilter.mode(Colors.black87, BlendMode. dstOut),height: 50.w,width: 50.w,),
+                          assetManagerr.favorite,colorFilter: ColorFilter.mode(Colors.black87, BlendMode. dstOut),),
 
                     ),
                     BottomNavigationBarItem(
                       backgroundColor: ColorManager.primaryColor,
                       icon: SvgPicture.asset(
-                        assetManagerr.myCart,height: 50.w,width: 50.w,),
+                        assetManagerr.myCart,),
                       label: "",
                       activeIcon: SvgPicture.asset(
-                          assetManagerr.myCart,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.dstOut),height: 50.w,width: 50.w,),
+                          assetManagerr.myCart,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.dstOut)),
 
                     ),
                     BottomNavigationBarItem(
                       backgroundColor: ColorManager.primaryColor,
                       icon: SvgPicture.asset(
-                        assetManagerr.profile,height: 50.w,width: 50.w,),
+                        assetManagerr.profile,),
                       label: "",
                       activeIcon: SvgPicture.asset(
-                          assetManagerr.profile,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.dstOut),height: 50.w,width: 50.w,),
+                          assetManagerr.profile,colorFilter: ColorFilter.mode(Colors.black87, BlendMode.dstOut),),
 
                     ),
 
@@ -81,9 +79,9 @@ class HomeScreen extends StatelessWidget {
                   ]
 
                            ),
-             ),
-            body: Tabs[homeViewModel.currentIndex],
+              body: Tabs[homeViewModel.currentIndex],
 
+            ),
           );
         });
   }

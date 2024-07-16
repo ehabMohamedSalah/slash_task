@@ -4,10 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/utilis/colors_manager.dart';
 import '../../../../../../data_layer/DataClass/productDataClass.dart';
 import '../../widget/AppBar_Widget.dart';
-import '../../widget/BestSelling.dart';
-import '../../widget/Categories_widget.dart';
-import '../../widget/newArrival.dart';
-import '../../widget/recommendedProduct.dart';
+import '../../widget/best_sellling/BestSelling.dart';
+import '../../widget/best_sellling/bestSelling_grid.dart';
+import '../../widget/categories/Categories_widget.dart';
+import '../../widget/categories/categorieGrid.dart';
+import '../../widget/new_arrival/newArrival.dart';
+import '../../widget/new_arrival/newArrival_grid.dart';
+import '../../widget/recommended/recommendedProduct.dart';
+import '../../widget/recommended/recommended_grid.dart';
 
 class WebLayout extends StatefulWidget {
   const WebLayout({super.key});
@@ -97,21 +101,13 @@ class _WebLayoutState extends State<WebLayout> {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(14.0),
-                    child: SizedBox(height: width>700?500:300, child:  Container(
-                        width: double.infinity,
-                        height: 150.h,
-                        child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder:  (context, index) => CategoriesWidget(categoryDataClass: ProductDataClass.categories[index],),
-                        separatorBuilder:  (context, index) => SizedBox(width: 5.w,),
-                        itemCount: ProductDataClass.categories.length),
-                        )),
+                    child:  SizedBox(height: width>600?500:300, child: CategoriesGrid()),
                   ),
                 ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(14.0),
-                    child: SizedBox(height: width>1100?400:300, child: const BestSellingWidget()),
+                    child: SizedBox(height: width>600?500:300, child: const BestSellingGrid()),
                   ),
                 ),
               ],
@@ -124,13 +120,14 @@ class _WebLayoutState extends State<WebLayout> {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(14.0),
-                    child: SizedBox(height: width>1100?400:300, child: const NewArrivalWidget()),
+                    child: SizedBox(height: width>600?500:300, child: const NewArrivalGrid()),
                   ),
                 ),
+
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(14.0),
-                    child: SizedBox(height: width>1100?400:300, child: const RecommendedWidget()),
+                    child: SizedBox(height: width>600?500:300, child: const RecommendedGrid()),
                   ),
                 )
               ],

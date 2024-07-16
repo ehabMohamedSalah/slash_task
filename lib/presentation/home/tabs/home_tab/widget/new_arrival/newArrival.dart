@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:slash_task/presentation/home/tabs/home_tab/view_model/home_tab_view_model_cubit.dart';
 
-import '../../../../../core/resuable_component/Product_widget.dart';
+import '../../../../../../core/resuable_component/Product_widget.dart';
 
 class NewArrivalWidget extends StatefulWidget {
   const NewArrivalWidget({super.key});
@@ -39,7 +39,7 @@ class _NewArrivalWidgetState extends State<NewArrivalWidget> {
             height: 200.h,
             child: ListView.separated(
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => ProductWidget(state.newArrivalEntity[index]),
+                itemBuilder: (context, index) => ProductWidget(price: state.newArrivalEntity[index].price,name: state.newArrivalEntity[index].name,imagePath: state.newArrivalEntity[index].image,),
                 separatorBuilder: (context, index) => SizedBox(width: 16.w,),
                 itemCount: 6),
           );

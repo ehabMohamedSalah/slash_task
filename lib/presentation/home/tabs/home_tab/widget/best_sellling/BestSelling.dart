@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:slash_task/presentation/home/tabs/home_tab/view_model/home_tab_view_model_cubit.dart';
 
-import '../../../../../core/resuable_component/Product_widget.dart';
+import '../../../../../../core/resuable_component/Product_widget.dart';
 
 class BestSellingWidget extends StatefulWidget {
   const BestSellingWidget({super.key});
@@ -34,16 +34,16 @@ class _NewArrivalWidgetState extends State<BestSellingWidget> {
       builder: (BuildContext context, state) {
         if(state is HomeTabViewModelSuccess){
           return  SizedBox(
-            height: 190.h,
+            height: 200.h,
             child: ListView.separated(
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => ProductWidget(state.bestselling[index]),
+                itemBuilder: (context, index) => ProductWidget( imagePath:state.bestselling[index].image ,name:state.bestselling[index].name  ,price: state.bestselling[index].price ,),
                 separatorBuilder:  (context, index) => SizedBox(width: 16.w,),
                 itemCount:state.bestselling.length),
           );
         }
         if(state is HomeTabViewModelError){
-          return Center(child: CircularProgressIndicator(),);
+          return Center(child: Text(state.errorMessage),);
         }
         return Center(child: CircularProgressIndicator(),);
       },
